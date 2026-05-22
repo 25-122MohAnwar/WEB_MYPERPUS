@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="admin">
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- NAVBAR MOBILE (TOGGLE) -->
+        <nav class="navbar navbar-dark bg-primary d-md-none">
+            <div class="container-fluid">
+
+                <!-- LOGO -->
+                <span class="navbar-brand">
+                <i class="bi bi-book"></i> Admin MyPerpus 
+                </span>
+
+                <!-- TOMBOL TOGGLE -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuMobile">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+            <!-- MENU YANG MUNCUL -->
+            <div class="collapse bg-primary" id="menuMobile">
+                <div class="p-3">
+
+                <a href="admin.html" class="d-block text-white mb-2">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
+
+                <a href="admindatabuku.html" class="d-block text-white mb-2">
+                    <i class="bi bi-book"></i> Data Buku
+                </a>
+
+                <a href="datauser.html" class="d-block text-white mb-2">
+                    <i class="bi bi-people"></i> Data User
+                </a>
+
+                <a href="peminjaman.html" class="d-block text-white mb-2">
+                    <i class="bi bi-clock-history"></i> Peminjaman
+                </a>
+
+                <a href="login.html" class="d-block text-white">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- SIDEBAR -->
+        <div class="col-md-2 admin-sidebar d-none d-md-block">
+            <h4><i class="bi bi-book"></i> Admin MyPerpus</h4>
+            <hr>
+
+            <a href="admin.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a href="admindatabuku.html"><i class="bi bi-book"></i> Data Buku</a>
+            <a href="datauser.html"><i class="bi bi-people"></i> Data User</a>
+            <a href="peminjaman.html"><i class="bi bi-clock-history"></i> Peminjaman</a>
+            <a href="login.html"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="col-md-10 p-4">
+
+            <!-- HEADER -->
+            <h3>Dashboard Admin</h3>
+
+            <!-- CARDS -->
+            <div class="row mt-4">
+
+                <div class="col-md-4">
+                    <div class="admin-card shadow-sm p-3 text-center">
+                        <i class="bi bi-book fs-1 text-primary"></i>
+                        <h5>Total Buku</h5>
+                        <h3>120</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card shadow-sm p-3 text-center">
+                        <i class="bi bi-people fs-1 text-success"></i>
+                        <h5>Total User</h5>
+                        <h3>45</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card shadow-sm p-3 text-center">
+                        <i class="bi bi-clock-history fs-1 text-danger"></i>
+                        <h5>Peminjaman Aktif</h5>
+                        <h3>10</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TABLE BUKU -->
+            <div class="mt-5">
+                <h5>Data Buku</h5>
+
+                <div class="card admin-card p-3">
+                    <table class="table table-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Penulis</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Belajar Bernafas</td>
+                                <td>Andi</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Belajar Makan</td>
+                                <td>Purnomo</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Edit</button>
+                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let user = JSON.parse(localStorage.getItem("user"));
+
+if (!user || user.role !== "admin") {
+    alert("Akses ditolak!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</div>
+</html>
